@@ -1,0 +1,43 @@
+{
+    "name": "@almighty-shogun/utils",
+    "description": "A small package that contains common utilities used in all my projects.",
+    "version": "0.0.0",
+    "type": "module",
+    "license": "MIT",
+    "scripts": {
+        "build": "tsc"
+    },
+    "publishConfig": {
+        "access": "public",
+        "provenance": true
+    },
+    "author": {
+        "name": "Almighty-Shogun",
+        "email": "alm1ghtyshogun1998@gmail.com",
+        "url": "https://shogun.ms"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Almighty-Shogun/packages.git",
+        "directory": "packages/utils"
+    },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "typings": "./dist/index.d.ts",
+    "sideEffects": false,
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    },
+    "files": [
+        "src",
+        "dist"
+    ],
+    "dependencies": {
+        "@types/luxon": "^3.7.1",
+        "luxon": "^3.7.2",
+        "vue-router": "^4.6.3"
+    }
+}
