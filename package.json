@@ -1,0 +1,7 @@
+{
+    "name": "shogun-packages",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ]
+}
