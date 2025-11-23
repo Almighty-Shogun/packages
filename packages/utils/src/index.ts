@@ -2,6 +2,7 @@ export { getCountry, getCountries } from './internal/localization'
 
 export { default as containsRoutePrefix } from './containsRoutePrefix'
 export { default as disableZoom } from './disableZoom'
+export { default as formatCelsius } from './formatCelsius'
 export { default as formatCurrency } from './formatCurrency'
 export { default as formatDate } from './formatDate'
 export { default as formatDateTime } from './formatDateTime'
