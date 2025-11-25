@@ -25,9 +25,8 @@ export type Weather = {
 
 type WeatherIcon = [day: string, night: string];
 export type WeatherCode = keyof typeof weatherCodeMap;
-export type WeatherCodes = Record<WeatherCode, WeatherIcon>;
 
-const weatherCodeMap: Record<string, WeatherIcon> = {
+const weatherCodeMap: Record<number, WeatherIcon> = {
     // 0 = Clear sky
     0: ["images/weather-icons/clear-day", "images/weather-icons/clear-night"],
 
@@ -37,7 +36,7 @@ const weatherCodeMap: Record<string, WeatherIcon> = {
     3: ["images/weather-icons/overcast-day", "images/weather-icons/overcast-night"],
 
     // 45 = Fog, 48 = Depositing rime fog
-    45: ["images/weather-icons/fog-day", "images/weather-icons/fod-night"],
+    45: ["images/weather-icons/fog-day", "images/weather-icons/fog-night"],
     48: ["images/weather-icons/overcast-day-fog", "images/weather-icons/overcast-night-fog"],
 
     // 51 = Light drizzle, 53 = Moderate drizzle, 55 = Heavy drizzle
@@ -81,8 +80,6 @@ const weatherCodeMap: Record<string, WeatherIcon> = {
     99: ["images/weather-icons/thunderstorms-day-extreme", "images/weather-icons/thunderstorms-night-extreme"]
 }
 
-const weatherCodes: WeatherCodes = weatherCodeMap as WeatherCodes;
-
 export async function callOpenMeteo(latitude: number, longitude: number): Promise<OpenMeteoResponse> {
     const params = new URLSearchParams({
         latitude: latitude.toString(),
@@ -100,18 +97,16 @@ export async function callOpenMeteo(latitude: number, longitude: number): Promis
 }
 
 export function getWeatherIcon(code: number, timeStrings: string[]): string {
-    const weatherCode = code.toString() as WeatherCode;
-
     const currentTime = DateTime.fromISO(timeStrings[0]);
     const sunriseTime = DateTime.fromISO(timeStrings[1]);
     const sunsetTime = DateTime.fromISO(timeStrings[2]);
 
     const isDayTime = currentTime >= sunriseTime && currentTime < sunsetTime;
 
-    const weatherIcon = weatherCodes[weatherCode];
+    const weatherIcon = weatherCodeMap[code];
 
     if (!weatherIcon) {
-        console.log(`[Weather] Unknown weather code ${weatherCode}`);
+        console.log(`[Weather] Unknown weather code ${code}`);
 
         return "images/weather-icons/not-available";
     }
