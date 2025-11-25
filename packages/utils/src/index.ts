@@ -1,3 +1,4 @@
+export type { Weather, WeatherItem } from './internal/weather'
 export { getCountry, getCountries } from './internal/localization'
 
 export { default as containsRoutePrefix } from './containsRoutePrefix'
