@@ -8,8 +8,8 @@ declare global {
         equals(value: number): boolean;
         isInRange(min: number, max: number): boolean;
         isEven(): boolean
-        isLowerThan(value: number): boolean;
-        isGreaterThan(value: number): boolean;
+        isLowerThan(value: number, allowEqual?: boolean): boolean;
+        isGreaterThan(value: number, allowEqual?: boolean): boolean;
     }
 }
 
@@ -41,12 +41,12 @@ Number.prototype.isEven = function (this: number): boolean {
     return this % 2 === 0;
 }
 
-Number.prototype.isLowerThan = function (this: number, value: number): boolean {
-    return this < value;
+Number.prototype.isLowerThan = function (this: number, value: number, allowEqual: boolean = false): boolean {
+    return allowEqual ? this <= value : this < value;
 }
 
-Number.prototype.isGreaterThan = function (this: number, value: number): boolean {
-    return this > value;
+Number.prototype.isGreaterThan = function (this: number, value: number, allowEqual: boolean = false): boolean {
+    return allowEqual ? this >= value : this > value;
 }
 
 export {};
