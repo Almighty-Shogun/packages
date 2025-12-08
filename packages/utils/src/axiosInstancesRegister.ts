@@ -1,22 +1,22 @@
 import axios from 'axios'
 import type { InternalAxiosRequestConfig, AxiosInstance, AxiosRequestConfig } from 'axios'
 
-export interface RegisterInstance {
-    name: string;
+type RegisterInstance<Name extends string = string> = {
+    name: Name;
     url: string;
     responseInterceptors?: [
         (response: any) => any,
         (error: any) => any
-    ],
+    ];
     requestInterceptors?: [
         (config: InternalAxiosRequestConfig) => InternalAxiosRequestConfig,
         (error: any) => any
-    ]
+    ];
     config?: AxiosRequestConfig;
 }
 
-export default function (instances: RegisterInstance[]): Record<string, AxiosInstance> {
-    const instancesMap: Record<string, AxiosInstance> = {};
+export default function<const T extends readonly RegisterInstance[]>(instances: T): { [K in T[number]['name']]: AxiosInstance } {
+    const instancesMap = {} as { [K in T[number]['name']]: AxiosInstance };
 
     instances.forEach(instance => {
         const axiosInstance = axios.create({
@@ -34,7 +34,7 @@ export default function (instances: RegisterInstance[]): Record<string, AxiosIns
             axiosInstance.interceptors.request.use(onSuccess, onError);
         }
 
-        instancesMap[instance.name] = axiosInstance;
+        instancesMap[instance.name as T[number]['name']] = axiosInstance;
     });
 
     return instancesMap;
