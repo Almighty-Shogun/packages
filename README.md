@@ -7,6 +7,7 @@ A collection of Node / Bun packages I use in (personal) projects.
 ## 📦 Packages
 - [**Utils**](/packages/utils): `@almighty-shogun/utils`
 - [**Prototype Extensions**](/packages/prototype-extensions): `@almighty-shogun/prototype-extensions`
+- [**API Core**](/packages/api-core): `@almighty-shogun/api-core`
 
 ## 📃 Prerequisites
 - **[Node.js](https://nodejs.org/en/)**: >= v23.11.1
