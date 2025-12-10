@@ -1,8 +1,6 @@
 export type { Weather, WeatherItem } from './internal/weather'
 export { getCountry, getCountries } from './internal/localization'
 
-export { default as axiosHttpLog } from './axiosHttpLog'
-export { default as axiosInstancesRegister } from './axiosInstancesRegister'
 export { default as containsRoutePrefix } from './containsRoutePrefix'
 export { default as disableZoom } from './disableZoom'
 export { default as formatCelsius } from './formatCelsius'
