@@ -5,6 +5,13 @@
     "": {
       "name": "shogun-packages",
     },
+    "packages/api-core": {
+      "name": "@almighty-shogun/api-core",
+      "version": "0.0.0",
+      "dependencies": {
+        "axios": "^1.13.2",
+      },
+    },
     "packages/prototype-extensions": {
       "name": "@almighty-shogun/prototype-extensions",
       "version": "0.0.0",
@@ -14,13 +21,14 @@
       "version": "0.0.0",
       "dependencies": {
         "@types/luxon": "^3.7.1",
-        "axios": "^1.13.2",
         "luxon": "^3.7.2",
         "vue-router": "^4.6.3",
       },
     },
   },
   "packages": {
+    "@almighty-shogun/api-core": ["@almighty-shogun/api-core@workspace:packages/api-core"],
+
     "@almighty-shogun/prototype-extensions": ["@almighty-shogun/prototype-extensions@workspace:packages/prototype-extensions"],
 
     "@almighty-shogun/utils": ["@almighty-shogun/utils@workspace:packages/utils"],
