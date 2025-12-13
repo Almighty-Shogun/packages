@@ -22,5 +22,8 @@ export { default as hasCurrentRoute } from './hasCurrentRoute'
 export { default as initApplication } from './initApplication'
 export { default as isBeforeNow } from './isBeforeNow'
 export { default as isCurrentRoute } from './isCurrentRoute'
+export { default as reload } from './reload'
 export { default as scrollToTop } from './scrollToTop'
 export { default as useDarkTheme } from './useDarkTheme'
+
+export * from './vuei18n'
