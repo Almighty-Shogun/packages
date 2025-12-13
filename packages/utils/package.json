@@ -38,6 +38,6 @@
     "dependencies": {
         "@types/luxon": "^3.7.1",
         "luxon": "^3.7.2",
-        "vue-router": "^4.6.4"
+        "vue": "^3.5.25"
     }
 }
